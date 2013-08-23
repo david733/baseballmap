@@ -14,10 +14,24 @@
 	<link rel="exhibit-extension" type="text/javascript" href="http://api.simile-widgets.org/exhibit/3.0.0/extensions/map/map-extension.js" />
 	<script src="http://api.simile-widgets.org/exhibit/3.0.0/exhibit-api.js"></script>
 
+
+
 <style>
 </style>
 </head> 
-<body><div class="container">
+<body>
+
+<!--facebook js sdk -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="container">
 	<h1>The Big Map of Professional Baseball</h1>
 
 	<div class="row">
@@ -54,14 +68,7 @@
 	<div class="row">
 		<div class="col-md-3">
 			<p>This is the geography of professional baseball, including all known major and minor leagues in the United States and abroad. Each marker represents the home city of a professional team. We appreciate any and all feedback, but updates will happen sporadically as we find the time! <a href="https://github.com/david733/baseballmap">Github</a></p>
-			<div id="fb-root"></div>
-			<script>(function(d, s, id) {
-			  var js, fjs = d.getElementsByTagName(s)[0];
-			  if (d.getElementById(id)) return;
-			  js = d.createElement(s); js.id = id;
-			  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-			  fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));</script>
+			<div class="fb-like" data-href="http://david733.github.io/baseballmap/" data-width="50" data-show-faces="true" data-send="false"></div>
 		</div>
 		<div class="col-md-3">
 			<p>To-do list of improvements to the map:</p>
