@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>The Big Map of Professional Baseball</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	
+	<link rel="exhibit-data" 
+	   type="application/jsonp"
+	   href="https://spreadsheets.google.com/feeds/list/0AsYDidQ0Do_9dFJQWG1ZMWFmM0lBWjhJaGdRc2xjSHc/ocy/public/basic?alt=json-in-script"
+	   ex:converter="googleSpreadsheets" />
+
+	<link rel="exhibit-extension" type="text/javascript" href="http://api.simile-widgets.org/exhibit/3.0.0/extensions/map/map-extension.js" />
+	<script src="http://api.simile-widgets.org/exhibit/3.0.0/exhibit-api.js"></script>
+
+<style>
+</style>
+</head> 
+<body><div class="container">
+	<h1>The Big Map of Professional Baseball</h1>
+
+	<div class="row">
+		<div class="col-md-9"
+		   ex:role="view" 
+		   ex:viewClass="Map" 
+		   ex:latlng=".latlng"
+		   ex:mapHeight=500
+		   ex:center=37.6888889,-97.3361111
+		   ex:zoom=4
+		   ex:showHeader=false
+		   ex:showFooter=true
+		   ex:color="#D62F2F">
+		</div>
+		<div ex:role="lens" class="team">
+			<div ex:content=".label" class="name"></div>
+			<div>
+			   <span ex:content=".level" class="level"></span>, 
+			   <span ex:content=".league" class="league"></span>
+			</div>
+			<div ex:if-exists=".affiliation" class="affiliation"> 
+			   <span ex:content=".affiliation"></span>
+			</div>
+			<div ex:content=".fulladdress" class="fulladdress"></div>
+		</div>
+		<div class="col-md-3">
+			<div ex:role="facet" ex:facetClass="Cloud" ex:expression=".level" ex:facetLabel="Level"></div>
+			<div ex:role="facet" ex:expression=".league" ex:facetLabel="League" ex:height=100></div>
+			<div ex:role="facet" ex:expression=".affiliation" ex:facetLabel="Affiliation (MiLB only)" ex:height=100></div>
+			<div ex:role="facet" ex:facetClass="TextSearch" ex:expressions=".city" ex:facetLabel="City"></div>
+			<div ex:role="facet" ex:facetClass="TextSearch" ex:expressions=".state/province" ex:facetLabel="State/Province"></div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<p>This is the geography of professional baseball, including all known major and minor leagues in the United States and abroad. Each marker represents the home city of a professional team. We appreciate any and all feedback, but updates will happen sporadically as we find the time!</p>
+		</div>
+		<div class="col-md-3">
+			<p>Wishlist of improvements to the map:</p>
+			<ul>
+				<li>Add in missing major pro leagues in other countries, especially Latin America.</li>
+				<li>Add in missing minor leagues.</li>
+				<li>Add icons distinguishing leages, or where available, teams.</li>
+				<li>Add links to wiki page and home page for each team.</li>
+				<li>Find way to represent traveling teams.</li>
+			</ul>
+		</div>
+		<div class="col-md-3">
+			<p>Much further down the line:</p>
+			<ul>
+				<li>Realign markers to actual home stadium coordinates.</li>
+				<li>Add in time dimension: using timeline, show when clubs form, move, and/or disband.</li>
+				<li>Add in historical leagues: Women's, Negro, and other now defunct major leagues</li>
+			</ul>
+		</div>
+		<div class="col-md-3">
+			<p>Site and initial data cleanup by <a href="http://alum.mit.edu/www/david733">David Lee</a>.</p>
+			<p>Thanks to the following:</p>
+			<ul>
+				<li>Wikipedia for the vast bulk of data for this map.</li>
+				<li>Exhibit 3.0, Bootstrap 3.0, Google Docs, Google Maps, and any other web libraries backing this page.</li>
+				<li>Team Jobu Bobblehead Night for feedback and error spotting.</li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+</div></body>
+</html>
